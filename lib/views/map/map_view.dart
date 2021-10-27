@@ -14,7 +14,7 @@ class _MapViewState extends State<MapView> {
   static const double _zoom = 11;
 
   // Location markers
-  Set _markers = {};
+  final Set _markers = {};
 
   late GoogleMapController _mapController;
   final Location _location = Location();

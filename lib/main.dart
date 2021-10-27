@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
           parallaxEnabled: true,
           body: const MapView(),
           panel: const Center(
-            child: AddToiletForm(),
+            child: AddToiletPage(),
           ),
           onPanelClosed: () { setState(() {
             _isAddButtonVisible = true;  
