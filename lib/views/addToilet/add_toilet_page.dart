@@ -24,9 +24,21 @@ class AddToiletContentView extends StatelessWidget {
       builder: (context, toiletDataProvider, child) {
         return Column(
           children: [
-            const Expanded( child: Center( child: Text("TOILET CATEGORY"), ),),
+            const SizedBox(height: 5,),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                width: double.infinity,
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(shape: BoxShape.rectangle, borderRadius: BorderRadius.circular(10), color: Colors.yellow), 
+                  child: const Text("TOILET CATEGORY"),
+                ),
+              ),
+            ),
             Expanded(
               child: ListView(
+                padding: EdgeInsets.zero,
                 children: toiletDataProvider.categories.map((e) => RadioListTile<int>(
                   title: Text(e.title,),
                   groupValue: toiletDataProvider.selectedCategoryId,
