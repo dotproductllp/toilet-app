@@ -2,9 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:toiletfinder/providers/toilet_data_provider.dart';
+import 'package:toiletfinder/views/addToilet/add_toilet_category_view.dart';
+import 'package:toiletfinder/views/common/rounded_button.dart';
 
-class AddToiletPage extends StatelessWidget {
-  const AddToiletPage({Key? key}) : super(key: key);
+class AddToiletView extends StatelessWidget {
+  const AddToiletView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +34,20 @@ class AddToiletContentView extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(shape: BoxShape.rectangle, borderRadius: BorderRadius.circular(10), color: Colors.yellow), 
-                  child: const Text("TOILET CATEGORY"),
+                  child: Text(toiletDataProvider.getPageTitle()),
                 ),
               ),
             ),
-            Expanded(
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: toiletDataProvider.categories.map((e) => RadioListTile<int>(
-                  title: Text(e.title,),
-                  groupValue: toiletDataProvider.selectedCategoryId,
-                  value: e.id,
-                  onChanged: (val) => toiletDataProvider.selectCategory(val),
-                  )).toList(),
-              ),
+            const Expanded(child: AddToiletCategoryView()),
+            Container(
+              padding: const EdgeInsets.all(30),
+              child: Row(
+                children: [
+                  RoundedButton(icon: const Icon(Icons.chevron_left), action: () {}),
+                  const Spacer(),
+                  RoundedButton(icon: const Icon(Icons.chevron_right), action: () {}),
+                ],
+              )
             )
           ]
         );

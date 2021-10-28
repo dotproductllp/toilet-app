@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toiletfinder/views/addToilet/add_toilet_page.dart';
+import 'package:toiletfinder/views/addToilet/add_toilet_view.dart';
 import 'package:toiletfinder/views/map/map_view.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
           parallaxEnabled: true,
           body: const MapView(),
           panel: const Center(
-            child: AddToiletPage(),
+            child: AddToiletView(),
           ),
           onPanelClosed: () {
             _showPanelCloseAlert();
